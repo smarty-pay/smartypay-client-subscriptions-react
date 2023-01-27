@@ -1,3 +1,8 @@
+/*
+  SMARTy Pay Client Subscriptions React
+  @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
+*/
+
 import React from 'react';
 import {createContext, useContext, useMemo, useState} from 'react';
 import {Web3Api} from 'smartypay-client-web3-common';
@@ -24,6 +29,6 @@ export function SmartyPayWeb3Provider({ children }){
 }
 
 
-export function useSmartyPayWeb3Context(){
+export function useSmartyPayWeb3(){
   return useContext(SmartyPayWeb3Context);
 }

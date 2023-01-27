@@ -4,10 +4,12 @@
 */
 
 import {SmartyPaySubscriptionsProvider} from './context/SmartyPaySubscriptionsProvider';
-import {useSmartyPayWeb3Context} from './context/SmartyPayWeb3Provider';
+import {useSmartyPayWeb3} from './context/SmartyPayWeb3Provider';
+import {useSmartyPayWeb3History} from './context/SmartyPayWeb3HistoryProvider';
 
 export {
   SmartyPaySubscriptionsProvider,
-  useSmartyPayWeb3Context,
+  useSmartyPayWeb3,
+  useSmartyPayWeb3History,
 }
 
