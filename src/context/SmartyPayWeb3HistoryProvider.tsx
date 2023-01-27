@@ -5,8 +5,11 @@
 
 import React from 'react';
 import {createContext, useContext, useMemo, useState} from 'react';
-import {getLastWeb3ApiName} from 'smartypay-client-web3-common';
-import {clearLastWeb3ApiName, storeLastWeb3ApiName} from 'smartypay-client-web3-common/src/web3-api-history';
+import {
+  getLastWeb3ApiName,
+  clearLastWeb3ApiName,
+  storeLastWeb3ApiName
+} from 'smartypay-client-web3-common';
 
 
 
