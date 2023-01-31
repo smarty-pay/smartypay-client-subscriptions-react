@@ -7,19 +7,20 @@ import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscrptions';
 import {useEffect, useState} from 'react';
 
 
-export function useWalletName(){
+export function useSmartyApiLocked(){
 
-  const [walletName, setWalletName] = useState(SmartyPaySubscriptionsBrowser.getWalletName());
+  const [isApiLocked, setApiLocked] = useState<boolean>(SmartyPaySubscriptionsBrowser.isApiLocked());
   useEffect(() => {
     function updateState() {
-      setWalletName(SmartyPaySubscriptionsBrowser.getWalletName());
+      setApiLocked(SmartyPaySubscriptionsBrowser.isApiLocked());
     }
 
+    SmartyPaySubscriptionsBrowser.addListener('api-locked', updateState);
     SmartyPaySubscriptionsBrowser.addListener('api-unlocked', updateState);
 
     return () => {
       SmartyPaySubscriptionsBrowser.removeListener(updateState);
     };
   }, []);
-  return walletName;
+  return isApiLocked;
 }

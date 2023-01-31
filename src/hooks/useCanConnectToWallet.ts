@@ -5,15 +5,20 @@
 
 import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscrptions';
 import {useEffect, useState} from 'react';
+import {Web3ApiProvider} from '../../../smartypay-client-web3-common';
 
 
-export function useWalletName(){
+export function useCanConnectToWallet(provider: Web3ApiProvider){
 
-  const [walletName, setWalletName] = useState(SmartyPaySubscriptionsBrowser.getWalletName());
+  const [canConnect, setCanConnect] = useState<boolean>(false);
   useEffect(() => {
     function updateState() {
-      setWalletName(SmartyPaySubscriptionsBrowser.getWalletName());
+      const targetWallet = provider.name();
+      const activeWallet = SmartyPaySubscriptionsBrowser.getWalletName();
+      setCanConnect(!activeWallet || activeWallet === targetWallet);
     }
+
+    updateState();
 
     SmartyPaySubscriptionsBrowser.addListener('api-unlocked', updateState);
 
@@ -21,5 +26,5 @@ export function useWalletName(){
       SmartyPaySubscriptionsBrowser.removeListener(updateState);
     };
   }, []);
-  return walletName;
+  return canConnect;
 }
