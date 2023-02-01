@@ -21,6 +21,7 @@ import {
   SubscriptionId,
   SubscriptionCharge,
   SubscriptionChargeStatus,
+  restoreOldWalletConnectionFromAny,
 } from 'smartypay-client-subscrptions';
 
 export {
@@ -31,6 +32,7 @@ export {
   SubscriptionId,
   SubscriptionCharge,
   SubscriptionChargeStatus,
+  restoreOldWalletConnectionFromAny,
 }
 
 export {
