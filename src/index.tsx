@@ -14,24 +14,10 @@ import {useDisconnectFromWalletCallback} from './hooks/useDisconnectFromWalletCa
 import {useSmartyApiLocked} from './hooks/useSmartyApiLocked';
 import {useSmartyApiLastError} from './hooks/useSmartyApiLastError';
 import {
-  SubscriptionPlan,
-  SubscriptionPlanStatus,
-  Subscription,
-  SubscriptionStatus,
-  SubscriptionId,
-  SubscriptionCharge,
-  SubscriptionChargeStatus,
   restoreOldWalletConnectionFromAny,
 } from 'smartypay-client-subscrptions';
 
 export {
-  SubscriptionPlan,
-  SubscriptionPlanStatus,
-  Subscription,
-  SubscriptionStatus,
-  SubscriptionId,
-  SubscriptionCharge,
-  SubscriptionChargeStatus,
   restoreOldWalletConnectionFromAny,
 }
 
