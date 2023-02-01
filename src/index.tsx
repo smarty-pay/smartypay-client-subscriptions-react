@@ -12,7 +12,7 @@ import {useOldConnectedWallet} from './hooks/useOldConnectedWallet';
 import {useConnectToWalletCallback} from './hooks/useConnectToWalletCallback';
 import {useDisconnectFromWalletCallback} from './hooks/useDisconnectFromWalletCallback';
 import {useSmartyApiLocked} from './hooks/useSmartyApiLocked';
-import {useWalletConnectionError} from './hooks/useWalletConnectionError';
+import {useSmartyApiLastError} from './hooks/useSmartyApiLastError';
 import {
   SubscriptionPlan,
   SubscriptionPlanStatus,
@@ -43,6 +43,6 @@ export {
   useConnectToWalletCallback,
   useDisconnectFromWalletCallback,
   useSmartyApiLocked,
-  useWalletConnectionError,
+  useSmartyApiLastError,
 }
 
