@@ -15,6 +15,9 @@ export function useWalletName(){
       setWalletName(SmartyPaySubscriptionsBrowser.getWalletName());
     }
 
+    updateState();
+
+    SmartyPaySubscriptionsBrowser.addListener('wallet-connected', updateState);
     SmartyPaySubscriptionsBrowser.addListener('api-unlocked', updateState);
 
     return () => {

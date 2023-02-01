@@ -15,6 +15,8 @@ export function useSmartyApiLocked(){
       setApiLocked(SmartyPaySubscriptionsBrowser.isApiLocked());
     }
 
+    updateState();
+
     SmartyPaySubscriptionsBrowser.addListener('api-locked', updateState);
     SmartyPaySubscriptionsBrowser.addListener('api-unlocked', updateState);
 

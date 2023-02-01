@@ -7,22 +7,21 @@ import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscrptions';
 import {useEffect, useState} from 'react';
 
 
-export function useOldConnectedWallet(){
+export function useWalletConnecting(){
 
-  const [oldName, setOldName] = useState(SmartyPaySubscriptionsBrowser.getOldConnectedWallet());
+  const [isConnecting, setIsConnecting] = useState(SmartyPaySubscriptionsBrowser.isWalletConnecting());
   useEffect(() => {
     function updateState() {
-      setOldName(SmartyPaySubscriptionsBrowser.getOldConnectedWallet());
+      setIsConnecting(SmartyPaySubscriptionsBrowser.isWalletConnecting());
     }
 
     updateState();
 
-    SmartyPaySubscriptionsBrowser.addListener('wallet-connected', updateState);
-    SmartyPaySubscriptionsBrowser.addListener('wallet-disconnected', updateState);
+    SmartyPaySubscriptionsBrowser.addListener('wallet-connecting', updateState);
 
     return () => {
       SmartyPaySubscriptionsBrowser.removeListener(updateState);
     };
   }, []);
-  return oldName;
+  return isConnecting;
 }
