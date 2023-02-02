@@ -42,6 +42,7 @@
   "dependencies": {
     "react": ">=14.0.0",
     "react-dom": ">=14.0.0",
+    "smartypay-client-model": "file:../smartypay-client-model",
     "smartypay-client-subscrptions": "file:../smartypay-client-subscrptions",
     "smartypay-client-web3-common": "file:../smartypay-client-web3-common"
   }

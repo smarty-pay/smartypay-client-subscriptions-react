@@ -15,7 +15,9 @@ import {useSmartyApiLocked} from './hooks/useSmartyApiLocked';
 import {useSmartyApiLastError} from './hooks/useSmartyApiLastError';
 import {
   restoreOldWalletConnectionFromAny,
+  SmartyPaySubscriptionsBrowser,
 } from 'smartypay-client-subscrptions';
+import {Subscription} from 'smartypay-client-model';
 
 export {
   restoreOldWalletConnectionFromAny,
@@ -34,3 +36,7 @@ export {
   useSmartyApiLastError,
 }
 
+
+export async function activateSubscriptionInWallet(req: ()=>Promise<Subscription>){
+  return SmartyPaySubscriptionsBrowser.activateSubscriptionInWallet(req);
+}
