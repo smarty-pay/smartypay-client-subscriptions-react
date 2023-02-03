@@ -16,8 +16,9 @@ import {useSmartyApiLastError} from './hooks/useSmartyApiLastError';
 import {
   restoreOldWalletConnectionFromAny,
   SmartyPaySubscriptionsBrowser,
+  SmartyPaySubscriptionsBrowserEvent,
 } from 'smartypay-client-subscrptions';
-import {Subscription} from 'smartypay-client-model';
+import {Subscription, util} from 'smartypay-client-model';
 
 export {
   restoreOldWalletConnectionFromAny,
@@ -30,12 +31,26 @@ export {
   useWalletAddress,
   useWalletChainId,
   useOldConnectedWallet,
-  useConnectToWalletCallback,
-  useDisconnectFromWalletCallback,
   useSmartyApiLocked,
   useSmartyApiLastError,
 }
 
+export {
+  useConnectToWalletCallback,
+  useDisconnectFromWalletCallback,
+}
+
+export function addSubscriptionsListener(event: SmartyPaySubscriptionsBrowserEvent, listener: util.EventListener) {
+  SmartyPaySubscriptionsBrowser.addListener(event, listener);
+}
+
+export function addSubscriptionsGlobalListener(listener: util.EventListener) {
+  SmartyPaySubscriptionsBrowser.addGlobalListener(listener);
+}
+
+export function removeSubscriptionsListener(listener: util.EventListener) {
+  SmartyPaySubscriptionsBrowser.removeListener(listener);
+}
 
 export async function activateSubscriptionInWallet(req: ()=>Promise<Subscription>){
   return SmartyPaySubscriptionsBrowser.activateSubscriptionInWallet(req);
