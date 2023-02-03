@@ -18,10 +18,13 @@ import {
   restoreOldWalletConnectionFromAny,
   SmartyPaySubscriptionsBrowser,
   SmartyPaySubscriptionsBrowserEvent,
+  SubscriptionsEvent,
 } from 'smartypay-client-subscrptions';
 import {Subscription, util} from 'smartypay-client-model';
 
 export {
+  SmartyPaySubscriptionsBrowserEvent,
+  SubscriptionsEvent,
   restoreOldWalletConnectionFromAny,
 }
 
@@ -56,4 +59,16 @@ export function removeSubscriptionsListener(listener: util.EventListener) {
 
 export async function activateSubscriptionInWallet(req: ()=>Promise<Subscription>){
   return SmartyPaySubscriptionsBrowser.activateSubscriptionInWallet(req);
+}
+
+export async function pauseSubscriptionInWallet(req: ()=>Promise<Subscription>){
+  return SmartyPaySubscriptionsBrowser.pauseSubscriptionInWallet(req);
+}
+
+export async function unPauseSubscriptionInWallet(req: ()=>Promise<Subscription>){
+  return SmartyPaySubscriptionsBrowser.unPauseSubscriptionInWallet(req);
+}
+
+export async function cancelSubscriptionInWallet(req: ()=>Promise<Subscription>){
+  return SmartyPaySubscriptionsBrowser.cancelSubscriptionInWallet(req);
 }

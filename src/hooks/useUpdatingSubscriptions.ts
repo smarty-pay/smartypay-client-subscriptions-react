@@ -22,7 +22,7 @@ export function useUpdatingSubscriptions(){
     return () => {
       SmartyPaySubscriptionsBrowser.removeListener(updateState);
     };
-  }, [list]);
+  }, []);
 
   return list;
 }
