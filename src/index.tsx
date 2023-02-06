@@ -12,19 +12,18 @@ import {useOldConnectedWallet} from './hooks/useOldConnectedWallet';
 import {useSmartyApiLocked} from './hooks/useSmartyApiLocked';
 import {useSmartyApiLastError} from './hooks/useSmartyApiLastError';
 import {useUpdatingSubscriptions} from './hooks/useUpdatingSubscriptions';
+import {useUpdatingSubscriptionsPlans} from './hooks/useUpdatingSubscriptionsPlans';
 import {useConnectToWalletCallback} from './hooks/callback/useConnectToWalletCallback';
 import {useDisconnectFromWalletCallback} from './hooks/callback/useDisconnectFromWalletCallback';
 import {
   restoreOldWalletConnectionFromAny,
   SmartyPaySubscriptionsBrowser,
   SmartyPaySubscriptionsBrowserEvent,
-  SubscriptionsEvent,
 } from 'smartypay-client-subscrptions';
 import {Subscription, util} from 'smartypay-client-model';
 
 export {
   SmartyPaySubscriptionsBrowserEvent,
-  SubscriptionsEvent,
   restoreOldWalletConnectionFromAny,
 }
 
@@ -38,6 +37,7 @@ export {
   useSmartyApiLocked,
   useSmartyApiLastError,
   useUpdatingSubscriptions,
+  useUpdatingSubscriptionsPlans,
 }
 
 export {
@@ -45,15 +45,18 @@ export {
   useDisconnectFromWalletCallback,
 }
 
-export function addSubscriptionsListener(event: SmartyPaySubscriptionsBrowserEvent, listener: util.EventListener) {
+export type SubscriptionsEvent = util.Event;
+export type SubscriptionsEventListener = (event: SubscriptionsEvent)=>void;
+
+export function addSubscriptionsListener(event: SmartyPaySubscriptionsBrowserEvent, listener: SubscriptionsEventListener) {
   SmartyPaySubscriptionsBrowser.addListener(event, listener);
 }
 
-export function addSubscriptionsGlobalListener(listener: util.EventListener) {
+export function addSubscriptionsGlobalListener(listener: SubscriptionsEventListener) {
   SmartyPaySubscriptionsBrowser.addGlobalListener(listener);
 }
 
-export function removeSubscriptionsListener(listener: util.EventListener) {
+export function removeSubscriptionsListener(listener: SubscriptionsEventListener) {
   SmartyPaySubscriptionsBrowser.removeListener(listener);
 }
 
