@@ -1,2 +1,2 @@
 # smartypay-client-subscrptions-react
-SmartyPay Subscptions SDK for React
+SmartyPay Subscriptions SDK for React
