@@ -19,7 +19,7 @@ import {
   restoreOldWalletConnectionFromAny,
   SmartyPaySubscriptionsBrowser,
   SmartyPaySubscriptionsBrowserEvent,
-} from 'smartypay-client-subscrptions';
+} from 'smartypay-client-subscriptions';
 import {Subscription, util} from 'smartypay-client-model';
 
 export {

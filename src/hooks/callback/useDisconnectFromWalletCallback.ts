@@ -1,5 +1,5 @@
 import {useCallback} from 'react';
-import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscrptions';
+import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscriptions';
 import {Name} from '../index';
 
 

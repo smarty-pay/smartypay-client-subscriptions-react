@@ -3,7 +3,7 @@
   @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
 */
 
-import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscrptions';
+import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscriptions';
 import {useEffect, useState} from 'react';
 import {Name} from './index';
 
