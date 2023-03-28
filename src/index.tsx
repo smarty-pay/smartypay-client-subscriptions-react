@@ -15,6 +15,10 @@ import {useUpdatingSubscriptions} from './hooks/useUpdatingSubscriptions';
 import {useUpdatingSubscriptionsPlans} from './hooks/useUpdatingSubscriptionsPlans';
 import {useConnectToWalletCallback} from './hooks/callback/useConnectToWalletCallback';
 import {useDisconnectFromWalletCallback} from './hooks/callback/useDisconnectFromWalletCallback';
+import {useSwitchWalletToAssetNetworkCallback} from './hooks/callback/useSwitchWalletToAssetNetworkCallback';
+import {useSwitchWalletToNetworkCallback} from './hooks/callback/useSwitchWalletToNetworkCallback';
+import {useAddCurrencyTokenToWalletCallback} from './hooks/callback/useAddCurrencyTokenToWalletCallback';
+import {useAddTokenToWalletCallback} from './hooks/callback/useAddTokenToWalletCallback';
 import {
   restoreOldWalletConnectionFromAny,
   SmartyPaySubscriptionsBrowser,
@@ -43,6 +47,10 @@ export {
 export {
   useConnectToWalletCallback,
   useDisconnectFromWalletCallback,
+  useSwitchWalletToAssetNetworkCallback,
+  useSwitchWalletToNetworkCallback,
+  useAddCurrencyTokenToWalletCallback,
+  useAddTokenToWalletCallback,
 }
 
 export type SubscriptionsEvent = util.Event;

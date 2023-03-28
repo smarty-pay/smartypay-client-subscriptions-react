@@ -5,12 +5,14 @@
 import {useCallback} from 'react';
 import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscriptions';
 import {Name} from '../index';
+import {Token} from 'smartypay-client-model';
 
 
-export function useDisconnectFromWalletCallback(){
+export function useAddTokenToWalletCallback(token: Token){
+
   return useCallback(() => {
-    SmartyPaySubscriptionsBrowser.disconnectFromWallet().catch(e => {
-      console.error(`${Name}: Can not disconnect from wallet`, e);
+    SmartyPaySubscriptionsBrowser.addTokenToWallet(token).catch(e => {
+      console.error(`${Name}: Can not add token to wallet`, e);
     });
-  }, []);
+  }, [token]);
 }

@@ -5,12 +5,14 @@
 import {useCallback} from 'react';
 import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscriptions';
 import {Name} from '../index';
+import {Network} from 'smartypay-client-model';
 
 
-export function useDisconnectFromWalletCallback(){
+export function useSwitchWalletToNetworkCallback(network: Network){
+
   return useCallback(() => {
-    SmartyPaySubscriptionsBrowser.disconnectFromWallet().catch(e => {
-      console.error(`${Name}: Can not disconnect from wallet`, e);
+    SmartyPaySubscriptionsBrowser.switchWalletToNetwork(network).catch(e => {
+      console.error(`${Name}: Can not switch wallet network`, e);
     });
-  }, []);
+  }, [network]);
 }
