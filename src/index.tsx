@@ -23,12 +23,24 @@ import {
   restoreOldWalletConnectionFromAny,
   SmartyPaySubscriptionsBrowser,
   SmartyPaySubscriptionsBrowserEvent,
+  ActivateSubscriptionInWalletProps,
+  TokenMaxAbsoluteAmount,
+  TokenZeroAmount,
 } from 'smartypay-client-subscriptions';
 import {Subscription, util} from 'smartypay-client-model';
 
 export {
   SmartyPaySubscriptionsBrowserEvent,
   restoreOldWalletConnectionFromAny,
+}
+
+export {
+  ActivateSubscriptionInWalletProps,
+}
+
+export {
+  TokenMaxAbsoluteAmount,
+  TokenZeroAmount,
 }
 
 export {
@@ -68,18 +80,21 @@ export function removeSubscriptionsListener(listener: SubscriptionsEventListener
   SmartyPaySubscriptionsBrowser.removeListener(listener);
 }
 
-export async function activateSubscriptionInWallet(req: ()=>Promise<Subscription>){
-  return SmartyPaySubscriptionsBrowser.activateSubscriptionInWallet(req);
+export async function activateSubscriptionInWallet(
+  subscriptionGetter: ()=>Promise<Subscription>,
+  props?: ActivateSubscriptionInWalletProps,
+){
+  return SmartyPaySubscriptionsBrowser.activateSubscriptionInWallet(subscriptionGetter, props);
 }
 
-export async function pauseSubscriptionInWallet(req: ()=>Promise<Subscription>){
-  return SmartyPaySubscriptionsBrowser.pauseSubscriptionInWallet(req);
+export async function pauseSubscriptionInWallet(subscriptionGetter: ()=>Promise<Subscription>){
+  return SmartyPaySubscriptionsBrowser.pauseSubscriptionInWallet(subscriptionGetter);
 }
 
-export async function unPauseSubscriptionInWallet(req: ()=>Promise<Subscription>){
-  return SmartyPaySubscriptionsBrowser.unPauseSubscriptionInWallet(req);
+export async function unPauseSubscriptionInWallet(subscriptionGetter: ()=>Promise<Subscription>){
+  return SmartyPaySubscriptionsBrowser.unPauseSubscriptionInWallet(subscriptionGetter);
 }
 
-export async function cancelSubscriptionInWallet(req: ()=>Promise<Subscription>){
-  return SmartyPaySubscriptionsBrowser.cancelSubscriptionInWallet(req);
+export async function cancelSubscriptionInWallet(subscriptionGetter: ()=>Promise<Subscription>){
+  return SmartyPaySubscriptionsBrowser.cancelSubscriptionInWallet(subscriptionGetter);
 }
