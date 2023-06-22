@@ -80,21 +80,25 @@ export function removeSubscriptionsListener(listener: SubscriptionsEventListener
   SmartyPaySubscriptionsBrowser.removeListener(listener);
 }
 
+export async function isValidBalanceToPay(subscription: Subscription){
+  return SmartyPaySubscriptionsBrowser.isValidBalanceToPay(subscription);
+}
+
 export async function activateSubscriptionInWallet(
-  subscriptionGetter: ()=>Promise<Subscription>,
+  subscriptionGetter: ()=>Promise<Subscription|undefined>,
   props?: ActivateSubscriptionInWalletProps,
 ){
   return SmartyPaySubscriptionsBrowser.activateSubscriptionInWallet(subscriptionGetter, props);
 }
 
-export async function pauseSubscriptionInWallet(subscriptionGetter: ()=>Promise<Subscription>){
+export async function pauseSubscriptionInWallet(subscriptionGetter: ()=>Promise<Subscription|undefined>){
   return SmartyPaySubscriptionsBrowser.pauseSubscriptionInWallet(subscriptionGetter);
 }
 
-export async function unPauseSubscriptionInWallet(subscriptionGetter: ()=>Promise<Subscription>){
+export async function unPauseSubscriptionInWallet(subscriptionGetter: ()=>Promise<Subscription|undefined>){
   return SmartyPaySubscriptionsBrowser.unPauseSubscriptionInWallet(subscriptionGetter);
 }
 
-export async function cancelSubscriptionInWallet(subscriptionGetter: ()=>Promise<Subscription>){
+export async function cancelSubscriptionInWallet(subscriptionGetter: ()=>Promise<Subscription|undefined>){
   return SmartyPaySubscriptionsBrowser.cancelSubscriptionInWallet(subscriptionGetter);
 }
