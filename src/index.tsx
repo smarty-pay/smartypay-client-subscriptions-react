@@ -26,12 +26,18 @@ import {
   ActivateSubscriptionInWalletProps,
   TokenMaxAbsoluteAmount,
   TokenZeroAmount,
+  isEndingSubscription,
+  getTokenByCurrency,
+  getAmountWithTokenLabel,
 } from 'smartypay-client-subscriptions';
 import {Subscription, util} from 'smartypay-client-model';
 
 export {
   SmartyPaySubscriptionsBrowserEvent,
   restoreOldWalletConnectionFromAny,
+  isEndingSubscription,
+  getTokenByCurrency,
+  getAmountWithTokenLabel,
 }
 
 export {
