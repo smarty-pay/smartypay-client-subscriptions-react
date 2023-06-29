@@ -24,18 +24,26 @@ import {
   SmartyPaySubscriptionsBrowser,
   SmartyPaySubscriptionsBrowserEvent,
   ActivateSubscriptionInWalletProps,
+  ChangeSubscriptionAllowanceInWalletProps,
   TokenMaxAbsoluteAmount,
   TokenZeroAmount,
+  isEndingSubscription,
+  getTokenByCurrency,
+  getAmountWithTokenLabel,
 } from 'smartypay-client-subscriptions';
 import {Subscription, util} from 'smartypay-client-model';
 
 export {
   SmartyPaySubscriptionsBrowserEvent,
   restoreOldWalletConnectionFromAny,
+  isEndingSubscription,
+  getTokenByCurrency,
+  getAmountWithTokenLabel,
 }
 
 export {
   ActivateSubscriptionInWalletProps,
+  ChangeSubscriptionAllowanceInWalletProps,
 }
 
 export {
@@ -89,6 +97,14 @@ export async function activateSubscriptionInWallet(
   props?: ActivateSubscriptionInWalletProps,
 ){
   return SmartyPaySubscriptionsBrowser.activateSubscriptionInWallet(subscriptionGetter, props);
+}
+
+
+export async function changeSubscriptionAllowanceInWallet(
+  subscriptionGetter: ()=>Promise<Subscription|undefined>,
+  props?: ChangeSubscriptionAllowanceInWalletProps,
+){
+  return SmartyPaySubscriptionsBrowser.changeSubscriptionAllowanceInWallet(subscriptionGetter, props);
 }
 
 export async function pauseSubscriptionInWallet(subscriptionGetter: ()=>Promise<Subscription|undefined>){
