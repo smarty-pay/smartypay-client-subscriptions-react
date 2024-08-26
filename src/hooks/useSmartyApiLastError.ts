@@ -3,12 +3,10 @@
   @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
 */
 
-import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscriptions';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
+import { SmartyPaySubscriptionsBrowser } from 'smartypay-client-subscriptions';
 
-
-export function useSmartyApiLastError(){
-
+export function useSmartyApiLastError() {
   const [apiLastError, setApiLastError] = useState(SmartyPaySubscriptionsBrowser.getApiLastError());
   useEffect(() => {
     function updateState() {

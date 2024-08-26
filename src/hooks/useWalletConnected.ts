@@ -3,13 +3,12 @@
   @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
 */
 
-import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscriptions';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
+import { SmartyPaySubscriptionsBrowser } from 'smartypay-client-subscriptions';
 
-
-export function useWalletConnected(){
-
+export function useWalletConnected() {
   const [isConnected, setIsConnected] = useState(SmartyPaySubscriptionsBrowser.isWalletConnected());
+
   useEffect(() => {
     function updateState() {
       setIsConnected(SmartyPaySubscriptionsBrowser.isWalletConnected());

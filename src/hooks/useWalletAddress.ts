@@ -3,21 +3,20 @@
   @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
 */
 
-import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscriptions';
-import {useEffect, useState} from 'react';
-import {Name} from './index';
+import { useEffect, useState } from 'react';
+import { SmartyPaySubscriptionsBrowser } from 'smartypay-client-subscriptions';
 
+import { Name } from './index';
 
-export function useWalletAddress(){
+export function useWalletAddress() {
+  const [address, setAddress] = useState<string | undefined>(undefined);
 
-  const [address, setAddress] = useState<string|undefined>(undefined);
   useEffect(() => {
-
     async function updateState() {
       try {
-        const address = await SmartyPaySubscriptionsBrowser.getWalletAddress();
-        setAddress(address);
-      } catch (e){
+        const actualAddress = await SmartyPaySubscriptionsBrowser.getWalletAddress();
+        setAddress(actualAddress);
+      } catch (e) {
         console.error(`${Name}: Can not get wallet address`, e);
       }
     }

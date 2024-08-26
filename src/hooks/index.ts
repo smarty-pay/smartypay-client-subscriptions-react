@@ -3,4 +3,4 @@
   @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
 */
 
-export const Name = 'SmartyPaySubscriptionsBrowser/hooks'
+export const Name = 'SmartyPaySubscriptionsBrowser/hooks';

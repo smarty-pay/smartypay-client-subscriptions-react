@@ -3,12 +3,10 @@
   @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
 */
 
-import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscriptions';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
+import { SmartyPaySubscriptionsBrowser } from 'smartypay-client-subscriptions';
 
-
-export function useOldConnectedWallet(){
-
+export function useOldConnectedWallet() {
   const [oldName, setOldName] = useState(SmartyPaySubscriptionsBrowser.getOldConnectedWallet());
   useEffect(() => {
     function updateState() {

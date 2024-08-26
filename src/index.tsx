@@ -3,35 +3,37 @@
   @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
 */
 
-import {useWalletConnecting} from './hooks/useWalletConnecting';
-import {useWalletConnected} from './hooks/useWalletConnected';
-import {useWalletName} from './hooks/useWalletName';
-import {useWalletAddress} from './hooks/useWalletAddress';
-import {useWalletChainId} from './hooks/useWalletChainId';
-import {useOldConnectedWallet} from './hooks/useOldConnectedWallet';
-import {useSmartyApiLocked} from './hooks/useSmartyApiLocked';
-import {useSmartyApiLastError} from './hooks/useSmartyApiLastError';
-import {useUpdatingSubscriptions} from './hooks/useUpdatingSubscriptions';
-import {useUpdatingSubscriptionsPlans} from './hooks/useUpdatingSubscriptionsPlans';
-import {useConnectToWalletCallback} from './hooks/callback/useConnectToWalletCallback';
-import {useDisconnectFromWalletCallback} from './hooks/callback/useDisconnectFromWalletCallback';
-import {useSwitchWalletToAssetNetworkCallback} from './hooks/callback/useSwitchWalletToAssetNetworkCallback';
-import {useSwitchWalletToNetworkCallback} from './hooks/callback/useSwitchWalletToNetworkCallback';
-import {useAddCurrencyTokenToWalletCallback} from './hooks/callback/useAddCurrencyTokenToWalletCallback';
-import {useAddTokenToWalletCallback} from './hooks/callback/useAddTokenToWalletCallback';
 import {
+  ActivateSubscriptionInWalletProps,
+  ChangeSubscriptionAllowanceInWalletProps,
+  getAmountWithTokenLabel,
+  getTokenByCurrency,
+  isEndingSubscription,
   restoreOldWalletConnectionFromAny,
   SmartyPaySubscriptionsBrowser,
   SmartyPaySubscriptionsBrowserEvent,
-  ActivateSubscriptionInWalletProps,
-  ChangeSubscriptionAllowanceInWalletProps,
   TokenMaxAbsoluteAmount,
   TokenZeroAmount,
-  isEndingSubscription,
-  getTokenByCurrency,
-  getAmountWithTokenLabel,
 } from 'smartypay-client-subscriptions';
-import {Subscription, util} from 'smartypay-client-model';
+
+import { useAddCurrencyTokenToWalletCallback } from './hooks/callback/useAddCurrencyTokenToWalletCallback';
+import { useAddTokenToWalletCallback } from './hooks/callback/useAddTokenToWalletCallback';
+import { useConnectToWalletCallback } from './hooks/callback/useConnectToWalletCallback';
+import { useDisconnectFromWalletCallback } from './hooks/callback/useDisconnectFromWalletCallback';
+import { useSwitchWalletToAssetNetworkCallback } from './hooks/callback/useSwitchWalletToAssetNetworkCallback';
+import { useSwitchWalletToNetworkCallback } from './hooks/callback/useSwitchWalletToNetworkCallback';
+import { useOldConnectedWallet } from './hooks/useOldConnectedWallet';
+import { useSmartyApiLastError } from './hooks/useSmartyApiLastError';
+import { useSmartyApiLocked } from './hooks/useSmartyApiLocked';
+import { useUpdatingSubscriptions } from './hooks/useUpdatingSubscriptions';
+import { useUpdatingSubscriptionsPlans } from './hooks/useUpdatingSubscriptionsPlans';
+import { useWalletAddress } from './hooks/useWalletAddress';
+import { useWalletChainId } from './hooks/useWalletChainId';
+import { useWalletConnected } from './hooks/useWalletConnected';
+import { useWalletConnecting } from './hooks/useWalletConnecting';
+import { useWalletName } from './hooks/useWalletName';
+
+import type { Subscription, util } from 'smartypay-client-model';
 
 export {
   SmartyPaySubscriptionsBrowserEvent,
@@ -39,17 +41,11 @@ export {
   isEndingSubscription,
   getTokenByCurrency,
   getAmountWithTokenLabel,
-}
+};
 
-export {
-  ActivateSubscriptionInWalletProps,
-  ChangeSubscriptionAllowanceInWalletProps,
-}
+export { ActivateSubscriptionInWalletProps, ChangeSubscriptionAllowanceInWalletProps };
 
-export {
-  TokenMaxAbsoluteAmount,
-  TokenZeroAmount,
-}
+export { TokenMaxAbsoluteAmount, TokenZeroAmount };
 
 export {
   useWalletName,
@@ -62,7 +58,7 @@ export {
   useSmartyApiLastError,
   useUpdatingSubscriptions,
   useUpdatingSubscriptionsPlans,
-}
+};
 
 export {
   useConnectToWalletCallback,
@@ -71,12 +67,15 @@ export {
   useSwitchWalletToNetworkCallback,
   useAddCurrencyTokenToWalletCallback,
   useAddTokenToWalletCallback,
-}
+};
 
 export type SubscriptionsEvent = util.Event;
-export type SubscriptionsEventListener = (event: SubscriptionsEvent)=>void;
+export type SubscriptionsEventListener = (event: SubscriptionsEvent) => void;
 
-export function addSubscriptionsListener(event: SmartyPaySubscriptionsBrowserEvent, listener: SubscriptionsEventListener) {
+export function addSubscriptionsListener(
+  event: SmartyPaySubscriptionsBrowserEvent,
+  listener: SubscriptionsEventListener,
+) {
   SmartyPaySubscriptionsBrowser.addListener(event, listener);
 }
 
@@ -88,33 +87,32 @@ export function removeSubscriptionsListener(listener: SubscriptionsEventListener
   SmartyPaySubscriptionsBrowser.removeListener(listener);
 }
 
-export async function isValidBalanceToPay(subscription: Subscription){
+export async function isValidBalanceToPay(subscription: Subscription) {
   return SmartyPaySubscriptionsBrowser.isValidBalanceToPay(subscription);
 }
 
 export async function activateSubscriptionInWallet(
-  subscriptionGetter: ()=>Promise<Subscription|undefined>,
+  subscriptionGetter: () => Promise<Subscription | undefined>,
   props?: ActivateSubscriptionInWalletProps,
-){
+) {
   return SmartyPaySubscriptionsBrowser.activateSubscriptionInWallet(subscriptionGetter, props);
 }
 
-
 export async function changeSubscriptionAllowanceInWallet(
-  subscriptionGetter: ()=>Promise<Subscription|undefined>,
+  subscriptionGetter: () => Promise<Subscription | undefined>,
   props?: ChangeSubscriptionAllowanceInWalletProps,
-){
+) {
   return SmartyPaySubscriptionsBrowser.changeSubscriptionAllowanceInWallet(subscriptionGetter, props);
 }
 
-export async function pauseSubscriptionInWallet(subscriptionGetter: ()=>Promise<Subscription|undefined>){
+export async function pauseSubscriptionInWallet(subscriptionGetter: () => Promise<Subscription | undefined>) {
   return SmartyPaySubscriptionsBrowser.pauseSubscriptionInWallet(subscriptionGetter);
 }
 
-export async function unPauseSubscriptionInWallet(subscriptionGetter: ()=>Promise<Subscription|undefined>){
+export async function unPauseSubscriptionInWallet(subscriptionGetter: () => Promise<Subscription | undefined>) {
   return SmartyPaySubscriptionsBrowser.unPauseSubscriptionInWallet(subscriptionGetter);
 }
 
-export async function cancelSubscriptionInWallet(subscriptionGetter: ()=>Promise<Subscription|undefined>){
+export async function cancelSubscriptionInWallet(subscriptionGetter: () => Promise<Subscription | undefined>) {
   return SmartyPaySubscriptionsBrowser.cancelSubscriptionInWallet(subscriptionGetter);
 }

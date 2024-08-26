@@ -3,13 +3,12 @@
   @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
 */
 
-import {SmartyPaySubscriptionsBrowser} from 'smartypay-client-subscriptions';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
+import { SmartyPaySubscriptionsBrowser } from 'smartypay-client-subscriptions';
 
-
-export function useWalletName(){
-
+export function useWalletName() {
   const [walletName, setWalletName] = useState(SmartyPaySubscriptionsBrowser.getWalletName());
+
   useEffect(() => {
     function updateState() {
       setWalletName(SmartyPaySubscriptionsBrowser.getWalletName());
