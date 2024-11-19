@@ -19,8 +19,8 @@ npm i smartypay-client-metamask
 - Use hook: [useConnectToWalletCallback](https://smarty-pay.github.io/smartypay-client-subscriptions-react/modules.html#useConnectToWalletCallback)
 - See [demo project](https://github.com/smarty-pay/smartypay-subscriptions-demo-react) for more details
 ```ts
-import {SmartyPayMetamaskProvider} from 'smartypay-client-metamask';
-import {useConnectToWalletCallback, useSmartyApiLocked} from 'smartypay-client-subscriptions-react';
+import { SmartyPayMetamaskProvider } from 'smartypay-client-metamask';
+import { useConnectToWalletCallback, useSmartyApiLocked } from 'smartypay-client-subscriptions-react';
 
 
 export function MetamaskConnectButton(){

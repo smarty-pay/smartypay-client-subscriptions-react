@@ -1,7 +1,7 @@
 {
   "name": "smartypay-client-subscriptions-react",
-  "version": "2.36.1",
-  "description": "SmartyPay Subscriptions SDK for React",
+  "version": "2.36.2",
+  "description": "Smarty Pay Subscriptions SDK for React",
   "author": "Evgeny Dolganov <evgenij.dolganov@gmail.com>",
   "repository": "https://github.com/smarty-pay/smartypay-client-subscriptions-react",
   "license": "MIT",
@@ -48,8 +48,8 @@
   "dependencies": {
     "react": ">=14.0.0",
     "react-dom": ">=14.0.0",
-    "smartypay-client-model": "^2.36.1",
-    "smartypay-client-subscriptions": "^2.36.0",
-    "smartypay-client-web3-common": "^2.36.1"
+    "smartypay-client-model": "^2.36.2",
+    "smartypay-client-subscriptions": "^2.36.1",
+    "smartypay-client-web3-common": "^2.36.2"
   }
 }
